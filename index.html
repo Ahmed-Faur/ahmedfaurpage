@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="Ahmed Faur — Electronics & software projects: ESP32 clocks, Quran memorization tools, trackers, and dashboards."
+    />
+    <title>Ahmed Faur — Projects Portfolio</title>
+
+    <!-- Fonts & Icons -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/your-fontawesome-kit.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Replace the kit URL above with your Font Awesome kit or use CDN classes if preferred -->
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- SEO / Social -->
+    <meta property="og:title" content="Ahmed Faur — Projects Portfolio" />
+    <meta
+      property="og:description"
+      content="ESP32 projects, Quran memorization tools, trackers, and dashboards."
+    />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <!-- Fixed Top Nav -->
+    <header class="topbar" id="topbar">
+      <div class="container topbar-inner">
+        <a class="brand" href="#home">Ahmed Faur</a>
+
+        <nav class="nav" id="nav">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <button
+            id="color-toggle"
+            class="btn-icon"
+            aria-label="Toggle dark mode"
+          >
+            <i class="fas fa-moon"></i>
+          </button>
+          <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Open navigation"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero / Intro -->
+      <section id="home" class="hero">
+        <div class="container hero-inner">
+          <div class="hero-text">
+            <h1>Electronics + Web — ESP32, PHP & Interactive Tools</h1>
+            <p class="muted">
+              I design efficient microcontroller systems (ESP32) and fast web
+              interfaces — clocks, trackers, and tools for Quran memorization
+              and data logging.
+            </p>
+            <div class="hero-cta">
+              <!-- <a href="#projects" class="btn">View Projects</a> -->
+              <!-- <a href="#contact" class="btn btn-outline">Contact Me</a> -->
+            </div>
+          </div>
+          <div class="hero-preview" aria-hidden="true">
+            <!-- <img
+              src="https://via.placeholder.com/560x360?text=Project+Preview"
+              alt="Project preview placeholder"
+              loading="lazy"
+            /> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section id="projects" class="section container">
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects-grid">
+          <!-- 1. ESP32 Wall Clock -->
+          <article class="card project-card" id="esp32-clock">
+            <div class="card-header">
+              <h3>ESP32 Wall Clock</h3>
+              <div class="accent-badge">Embedded</div>
+            </div>
+            <p class="card-desc">
+              A feature-rich, internet-synced wall clock with advanced alarms,
+              Azan settings, audio playback, animations, and display
+              customization.
+            </p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Time sync (NTP)</li>
+              <li><i class="fas fa-bell"></i> Advanced alarms & schedules</li>
+              <li><i class="fas fa-sun"></i> Brightness & dim schedules</li>
+              <li>
+                <i class="fas fa-music"></i> MP3 audio playback & Azan reminder
+              </li>
+              <li><i class="fas fa-cogs"></i> Display themes & animations</li>
+            </ul>
+            <div class="project-images">
+              <img
+                src="9ff6a0ea-b4e6-4b01-af8f-f1fa6e3798cd.jpg"
+                alt="Clock UI placeholder"
+                loading="lazy"
+              />
+              <img
+                src="4573dc38-74d4-49c2-af7a-07178ee0c3ca (1).jpg"
+                alt="Physical design placeholder"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-actions">
+              <a class="btn" href="esp32-wall-clock.html">View More</a>
+            </div>
+          </article>
+
+          <!-- 2. Quran Memorization Tracker -->
+          <article class="card project-card" id="quran-memorizer">
+            <div class="card-header">
+              <h3>Quran Memorization Tracker</h3>
+              <div class="accent-badge">Web App</div>
+            </div>
+            <p class="card-desc">
+              A multi-user PHP application to track Quran memorization progress,
+              notes, and plans with a fast, AJAX-powered interface.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fas fa-list"></i> Surah list & progress highlighting
+              </li>
+              <li><i class="fas fa-sticky-note"></i> Save notes & plans</li>
+              <li><i class="fas fa-database"></i> Persistent MySQL storage</li>
+              <li><i class="fas fa-bolt"></i> AJAX updates for fast UX</li>
+              <br />
+            </ul>
+            <div class="project-images">
+              <img
+                src="Surah list placeholder.PNG"
+                alt="Surah list placeholder"
+                loading="lazy"
+              />
+              <!-- <img
+                src="Tracker popup placeholder.PNG"
+                alt="Tracker popup placeholder"
+                loading="lazy"
+              /> -->
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://quranmemorizer.fwh.is"
+                target="_blank"
+                rel="noopener"
+                >Visit Site</a
+              >
+              <!-- <a class="btn btn-outline" href="#" target="_blank" rel="noopener"
+                >Code</a -->
+            </div>
+          </article>
+
+          <!-- 3. Quran Hifz Testing Website -->
+          <article class="card project-card" id="hifz-testing">
+            <div class="card-header">
+              <h3>Quran Hifz Testing Website</h3>
+              <div class="accent-badge">Education</div>
+            </div>
+            <p class="card-desc">
+              A web-based system for testing Quran memorization with multiple
+              quiz types to strengthen recall and page connection.
+            </p>
+            <ul class="feature-list">
+              <li><i class="fas fa-question-circle"></i> 4 quiz types</li>
+              <li><i class="fas fa-random"></i> Random Ayah display</li>
+              <li><i class="fas fa-ban"></i> No-repeat mode</li>
+              <br />
+            </ul>
+            <div class="project-images">
+              <img
+                src="Quiz UI placeholder.PNG"
+                alt="Quiz UI placeholder"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://myhifz.fwh.is/quiz_type3.php"
+                target="_blank"
+                rel="noopener"
+                >Open Quiz</a
+              >
+              <!-- <a
+                class="btn btn-outline"
+                href="https://myhifz.fwh.is/"
+                target="_blank"
+                rel="noopener"
+                >Homepage</a
+              > -->
+            </div>
+          </article>
+
+          <!-- 4. Daily Life Tracker -->
+          <article class="card project-card" id="daily-tracker">
+            <div class="card-header">
+              <h3>Daily Life Tracker — A Year at a Glance</h3>
+              <div class="accent-badge">UX / Data</div>
+            </div>
+            <p class="card-desc">
+              A multi-user web application to visually track mood, habits, and
+              notes using a yearly grid calendar.
+            </p>
+            <ul class="feature-list">
+              <li>
+                <i class="fas fa-calendar-alt"></i> Yearly grid & color-coded
+                days
+              </li>
+              <li><i class="fas fa-smile"></i> Emoji notes & moods</li>
+              <li><i class="fas fa-sync-alt"></i> Fast AJAX updates</li>
+              <li><i class="fas fa-lock"></i> Private user data</li>
+            </ul>
+            <div class="project-images">
+              <img
+                src="Year grid placeholder.PNG"
+                alt="Year grid placeholder"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="https://daystrackerahmedfaur.fwh.is/login.php"
+                target="_blank"
+                rel="noopener"
+                >Visit Site</a
+              >
+              <!-- <a class="btn btn-outline" href="#" target="_blank" rel="noopener"
+                >Details</a
+              > -->
+            </div>
+          </article>
+
+          <!-- 5. ESP32 Temperature Logger -->
+          <article class="card project-card" id="temp-logger">
+            <div class="card-header">
+              <h3>ESP32 Temperature Logger & Dashboard</h3>
+              <div class="accent-badge">IoT</div>
+            </div>
+            <p class="card-desc">
+              A real-time ESP32-powered temperature logging system with charts,
+              filtering, exporting, and deletion tools.
+            </p>
+            <ul class="feature-list">
+              <li><i class="fas fa-chart-line"></i> Interactive charts</li>
+              <li><i class="fas fa-file-csv"></i> CSV export</li>
+              <li><i class="fas fa-filter"></i> Date filtering & stats</li>
+              <li><i class="fas fa-trash-alt"></i> Filtered deletion tools</li>
+            </ul>
+            <div class="project-images">
+              <img
+                src="Dashboard placeholder.PNG"
+                alt="Dashboard placeholder"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-actions">
+              <a
+                class="btn"
+                href="Temperature Logs (Auto-Refresh).html"
+                target="_blank"
+                rel="noopener"
+                >Open Dashboard</a
+              >
+              <!-- <a class="btn btn-outline" href="#" target="_blank" rel="noopener"
+                >Code</a
+              > -->
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section about container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+              I’m an electronics & software enthusiast focused on ESP32
+              microcontroller projects and web interfaces. I combine efficient
+              embedded firmware with clean, fast front-ends (AJAX/JS) to build
+              interactive systems — clocks, trackers, and dashboards.
+            </p>
+            <ul class="meta-list">
+              <li>
+                <strong>Focus:</strong> ESP32, embedded C/C++, PHP, AJAX, MySQL
+              </li>
+              <li>
+                <strong>Interests:</strong> UI/UX for hardware interfaces, audio
+                playback, scheduling systems
+              </li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <!-- <img
+              src="https://via.placeholder.com/420x300?text=About+Image"
+              alt="About placeholder"
+              loading="lazy"
+            /> -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <!-- <section id="contact" class="section container contact-section">
+      <h2 class="section-title">Contact</h2>
+      <p class="muted">Get in touch for collaborations, consulting, or to discuss a project.</p>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="contact-form" method="post" action="#">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" id="name" required>
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" id="email" required>
+          </label>
+          <label>
+            <span>Message</span>
+            <textarea name="message" id="message" rows="6" required></textarea>
+          </label>
+
+          <div class="form-actions">
+            <button type="submit" class="btn">Send Message</button>
+            <button type="button" id="mailtoBtn" class="btn btn-outline">Open Email</button>
+          </div>
+          <p id="formNote" class="muted small">This form requires a server to send email. See comments in <code>script.js</code> for easy Formspree / server options.</p>
+        </form>
+
+        <div class="contact-info">
+          <h3>Other ways</h3>
+          <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+          <p>Location: Türkiye</p>
+          <p>Available for remote collaborations and freelance work.</p>
+        </div>
+      </div>
+    </section> -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> Ahmed Faur — All rights reserved.</p>
+        <nav class="footer-nav">
+          <a href="#projects">Projects</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
