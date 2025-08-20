@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://localhost/DataLoggerProject/data_manage.php -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Data Management</title>
+  
+  <script src="./Data Management_files/jquery-3.6.0.min.js.تنزيل"></script>
+  <style>
+    body { font-family: sans-serif; background: #f5f5f5; padding: 20px; }
+    .box { background: white; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 0 5px #aaa; }
+    label, input, button { display: block; margin-top: 10px; }
+    button.danger { background: #c00; color: white; }
+  </style>
+<style>.lottie-animation-container{width:var(--lottie-animation-container-width);height:var(--lottie-animation-container-height);background-color:var(--lottie-animation-container-background-color);overflow:hidden;margin:var(--lottie-animation-margin)}.lottie-animation-container svg{transform:scale(var(--lottie-animation-scale))}</style><style>.lottie-animation-container{width:var(--lottie-animation-container-width);height:var(--lottie-animation-container-height);background-color:var(--lottie-animation-container-background-color);overflow:hidden;margin:var(--lottie-animation-margin)}.lottie-animation-container svg{transform:scale(var(--lottie-animation-scale))}</style></head>
+<body>
+  <h2>Data Management</h2>
+
+<div class="box">
+  <h3>📅 Filter Logs by Date Range</h3>
+  <label>Start Date: <input type="datetime-local" id="startDate" onchange="updateRecordCount()"></label>
+  <label>End Date: <input type="datetime-local" id="endDate" onchange="updateRecordCount()"></label>
+  
+  <p id="recordCount" style="font-weight:bold; margin-top: 10px;">Records selected: —</p>
+  
+  <button onclick="exportCSV()" style="margin-top:10px;" fdprocessedid="vayw9q">⬇️ Export Filtered Data</button>
+  <button onclick="confirmDeleteRange()" class="danger" fdprocessedid="hhqdc8">🗑️ Delete Filtered Logs</button>
+  
+  <p id="statusMessage" style="margin-top: 10px; font-weight:bold;"></p>
+</div>
+
+  <div class="box">
+    <h3>📦 Export All Logs</h3>
+    <button onclick="window.location=&#39;export_all.php&#39;" fdprocessedid="ihniyi">⬇️ Download All as CSV</button>
+  </div>
+
+<div class="box">
+  <h3>Auto Delete Old Logs</h3>
+  <form id="autoDeleteForm" method="POST" action="http://localhost/DataLoggerProject/auto_delete.php">
+    <label>Keep only last 
+      <input type="number" name="days" value="30" min="1" required="" fdprocessedid="asjp7s">
+    </label>
+    <button type="submit" class="danger" fdprocessedid="ik10nq">Auto Delete Now</button>
+  </form>
+</div>
+
+<div class="box">
+  <h3>🔥 Delete All Logs (Highly Sensitive)</h3>
+  <button onclick="confirmDeleteAll()" class="danger" fdprocessedid="b18hm">⚠️ Delete ALL Logs</button>
+</div>
+
+
+  <script>
+function updateRecordCount() {
+    const start = document.getElementById('startDate').value;
+    const end = document.getElementById('endDate').value;
+    if (!start || !end) {
+      document.getElementById('recordCount').textContent = "Records selected: —";
+      return;
+    }
+    const query = `?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`;
+
+    $.getJSON('count_records.php' + query, function(data) {
+      if (data && typeof data.count === 'number') {
+        document.getElementById('recordCount').textContent = `Records selected: ${data.count}`;
+      } else {
+        document.getElementById('recordCount').textContent = "Records selected: 0";
+      }
+    }).fail(() => {
+      document.getElementById('recordCount').textContent = "Error fetching record count";
+    });
+  }
+
+
+
+    function exportCSV() {
+  const start = document.getElementById("startDate").value;
+  const end = document.getElementById("endDate").value;
+
+  if (!start || !end) {
+    alert("Please select start and end dates first.");
+    return;
+  }
+
+  const url = `export_csv.php?start=${encodeURIComponent(start)}&end=${encodeURIComponent(end)}`;
+  window.location.href = url;
+}
+
+
+    function confirmDeleteRange() {
+  const start = document.getElementById("startDate").value;
+  const end = document.getElementById("endDate").value;
+
+  if (!start || !end) {
+    alert("Select both dates first.");
+    return;
+  }
+
+  if (confirm("⚠️ Are you sure you want to delete the filtered records? This action cannot be undone.")) {
+    $.post("delete_range.php", { start, end }, function(response) {
+      alert(response);
+      document.getElementById("rangeStats").innerHTML = "";
+    });
+  }
+}
+function confirmDeleteAll() {
+  if (confirm("⚠️ This will DELETE ALL LOGS permanently.\nAre you absolutely sure?")) {
+    const userInput = prompt("Type DELETE to confirm:");
+    if (userInput === "DELETE") {
+      $.post("delete_all.php", {}, function(response) {
+        alert(response);
+        // Optionally refresh page or reset UI here
+      }).fail(function() {
+        alert("Failed to delete all logs.");
+      });
+    } else {
+      alert("Deletion cancelled. Confirmation word incorrect.");
+    }
+  }
+}
+
+  
+    function setStatusMessage(msg, type='') {
+    const el = document.getElementById('statusMessage');
+    el.textContent = msg;
+    el.style.color = type === 'error' ? 'red' : (type === 'success' ? 'green' : 'black');
+  }
+
+  document.getElementById('autoDeleteForm').addEventListener('submit', function(e) {
+    const daysInput = this.elements['days'].value;
+    if (!confirm(`Are you sure you want to delete all logs older than ${daysInput} days? This action cannot be undone.`)) {
+      e.preventDefault(); // Cancel form submission
+    }
+  });
+  </script>
+
+
+<span id="PING_IFRAME_FORM_DETECTION" style="display: none;"></span></body></html>
